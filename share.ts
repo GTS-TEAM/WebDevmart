@@ -13,7 +13,15 @@ export interface productReview {
   message: string;
 }
 
-export var settings = {
+export const ratingSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+export const settings = {
   dots: true,
   infinite: false,
   speed: 500,
@@ -68,6 +76,7 @@ export const WrapSlider = styled.div`
     width: 4rem;
     z-index: 1;
     border-radius: 50%;
+    right: -4rem;
   }
 
   .slick-next {
@@ -80,5 +89,73 @@ export const WrapSlider = styled.div`
     width: 4rem;
     z-index: 1;
     border-radius: 50%;
+  }
+`;
+
+export const SliderTop = styled.div`
+  .slick-dots .slick-active {
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 2rem;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: transparent;
+  }
+
+  .slick-prev {
+    ::before {
+      content: "❮";
+      color: black;
+    }
+    background-color: white;
+    height: 4rem;
+    width: 4rem;
+    z-index: 1;
+    border-radius: 50%;
+  }
+
+  .slick-next {
+    ::before {
+      content: "❯";
+      color: black;
+    }
+    background-color: white;
+    height: 4rem;
+    width: 4rem;
+    z-index: 1;
+    border-radius: 50%;
+  }
+`;
+
+export const SliderRating = styled.div`
+  .slick-dots {
+    background-color: aliceblue;
+    width: 100%;
+  }
+  .slick-prev {
+    ::before {
+      content: "❮";
+      color: black;
+    }
+    background-color: white;
+    height: 4rem;
+    width: 4rem;
+    z-index: 1;
+    border-radius: 50%;
+    left: -4rem;
+  }
+
+  .slick-next {
+    ::before {
+      content: "❯";
+      color: black;
+    }
+    background-color: white;
+    height: 4rem;
+    width: 4rem;
+    z-index: 1;
+    border-radius: 50%;
+    right: -4rem;
   }
 `;

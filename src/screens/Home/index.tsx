@@ -1,6 +1,6 @@
-import Header from "@components/Header";
-import Hero from "@components/Hero";
-import PreviewProduct from "@components/PreviewProduct";
+import Header from "@components/heading/Header";
+import Hero from "@components/heading/Hero";
+import PreviewProduct from "@components/heading/PreviewProduct";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -13,8 +13,10 @@ const Home: NextPage = () => {
       </Head>
       <div>
         <Header />
-        <div className="w-full h-screen bg-zinc-200 flex flex-col justify-between overflow-hidden">
+        <div className="w-full h-screen bg-zinc-200 flex flex-col justify-between">
           <Hero />
+        </div>
+        <div>
           <PreviewProduct />
         </div>
       </div>
