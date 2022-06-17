@@ -152,7 +152,7 @@ const PreviewProduct = () => {
               </span>
             </div>
             <span className="hidden md:block font-thin text-white">
-              © 2022 e-Commerce. Design with ♥️ by e-Commerce Team.
+              © 2022 e-Commerce. Design with 🧡 by e-Commerce Team.
             </span>
             <div className="flex gap-2">
               <FaFacebookF className="hover:text-white cursor-pointer" />

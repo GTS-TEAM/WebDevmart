@@ -13,6 +13,11 @@ export interface productReview {
   message: string;
 }
 
+export interface User {
+  name: string;
+  age: number;
+}
+
 export const ratingSettings = {
   dots: true,
   infinite: true,
