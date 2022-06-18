@@ -23,7 +23,9 @@ const Hero = () => {
             <p className="text-3xl py-3">Great Option</p>
           </Fade>
           <Fade left delay={1500}>
-            <button className="py-3 px-6 sm:w-[60%]">Get Started</button>
+            <button className="py-3 px-6 sm:w-[60%] text-white border bg-indigo-600 border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-md">
+              Get Started
+            </button>
           </Fade>
         </div>
         <div className="flex flex-col justify-center flexs">
