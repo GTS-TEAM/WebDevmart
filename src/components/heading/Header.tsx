@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
-import Link from "next/link";
 import { ROUTES } from "pages/share";
 import { useRouter } from "next/router";
 

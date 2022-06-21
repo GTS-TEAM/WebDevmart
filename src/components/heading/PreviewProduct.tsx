@@ -57,7 +57,6 @@ const PreviewProduct = () => {
           </Slider>
         </WrapSlider>
       </Fade>
-      {/* Rating*/}
       <Fade bottom>
         <div className="text-center bg-green-300">
           <SliderRating>
@@ -75,7 +74,9 @@ const PreviewProduct = () => {
                       src="https://i.ibb.co/fxQbgcC/5start-removebg-preview.png"
                       alt=""
                     />
-                    <span className="m-2">"{product.description}"</span>
+                    <span className="m-2">
+                      &quot;{product.description}&quot;
+                    </span>
                     <span className="md:text-2xl md:mt-10 opacity-50 text-sm">
                       Founder Of e-Commerce Team
                     </span>
@@ -104,7 +105,7 @@ const PreviewProduct = () => {
             {imageSlide?.products.map((product) => (
               <div key={product.id} className="px-3">
                 <img
-                  src={product.images[1]}
+                  src={product.images[0]}
                   alt=""
                   className="w-85 rounded-md hover:scale-105"
                 />
@@ -113,7 +114,6 @@ const PreviewProduct = () => {
           </Slider>
         </SliderTop>
       </Zoom>
-      {/*Image Instagram*/}
       <Fade bottom>
         <div className="flex flex-col justify-center items-center mt-20 mb-20">
           <span className="text-xl font-semibold text-red-600">
@@ -129,7 +129,7 @@ const PreviewProduct = () => {
         </div>
         <div className="flex grid-cols-2 flex-wrap justify-center items-center gap-4 m-8">
           {imageSlide?.products.slice(0, 10).map((image) => (
-            <div className="relative cursor-pointer">
+            <div className="relative cursor-pointer" key={image.id}>
               <img
                 src={image.images[0]}
                 alt=""

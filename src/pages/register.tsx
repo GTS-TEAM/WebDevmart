@@ -162,7 +162,7 @@ const Register = () => {
             </div>
             <div className="flex flex-col items-center">
               <span className="m-10">
-                Already have an account ?{" "}
+                Already have an account ?
                 <Link href={ROUTES.LOGIN}>
                   <span className="text-blue-800 font-bold cursor-pointer border-b-2 border-blue-800">
                     Signin
