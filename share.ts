@@ -1,6 +1,27 @@
 import styled from "styled-components";
 
 export const BASE_URL = "https://api.devmart.software/ms-golang/api/";
+
+export interface User {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+export interface Token {
+  access_token: string;
+  refresh_token: string;
+}
+
+export interface ResLogin {
+  user: User;
+  token: Token;
+  message: string;
+}
+
 export interface products {
   id: string;
   category: string;

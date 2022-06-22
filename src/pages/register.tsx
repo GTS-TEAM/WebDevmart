@@ -50,7 +50,7 @@ const Register = () => {
               <img
                 src="images/lg-devmart.png"
                 alt=""
-                className="cursor-pointer hidden md:flex mx-auto h-20 w-auto"
+                className="cursor-pointer hidden md:flex mx-auto h-20 w-auto xl:h-36 xl:w-44"
               />
             </Link>
             <Link href={ROUTES.HOME}>
@@ -162,10 +162,10 @@ const Register = () => {
             </div>
             <div className="flex flex-col items-center">
               <span className="m-10">
-                Already have an account ?
+                {"Đã có tài khoản ? "}
                 <Link href={ROUTES.LOGIN}>
                   <span className="text-blue-800 font-bold cursor-pointer border-b-2 border-blue-800">
-                    Signin
+                    Đăng nhập
                   </span>
                 </Link>
               </span>

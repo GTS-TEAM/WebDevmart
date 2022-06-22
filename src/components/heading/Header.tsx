@@ -31,7 +31,10 @@ const Header = () => {
           </ul>
         </div>
         <div className="hidden md:flex pr-4">
-          <button className="border-none bg-transparent text-black mr-4 border-indigo-600 hover:text-indigo-600 rounded-md">
+          <button
+            className="border-none bg-transparent text-black mr-4 border-indigo-600 hover:text-indigo-600 rounded-md"
+            onClick={() => navigate.push(ROUTES.LOGIN)}
+          >
             Sign In
           </button>
           <button
