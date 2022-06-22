@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
-import { ROUTES } from "pages/share";
+import { ROUTES } from "../../../share";
 import { useRouter } from "next/router";
 
 const Header = () => {

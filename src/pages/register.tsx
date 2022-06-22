@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
-import { ROUTES } from "./share";
+import { ROUTES } from "../../share";
 import BehindBanner from "@components/BehindBanner/BehindBanner";
 
 const Register = () => {

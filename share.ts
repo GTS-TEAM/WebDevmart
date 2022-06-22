@@ -185,3 +185,9 @@ export const SliderRating = styled.div`
     right: -4rem;
   }
 `;
+
+export const ROUTES = {
+  REGISTER: "/register",
+  LOGIN: "/login",
+  HOME: "/",
+};
