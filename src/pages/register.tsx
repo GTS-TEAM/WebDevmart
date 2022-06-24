@@ -1,5 +1,3 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
 import { useFormik } from "formik";
@@ -8,11 +6,13 @@ import React, { useEffect, useState } from "react";
 import { ROUTES } from "../constaint/constant";
 import BehindBanner from "@components/BehindBanner/BehindBanner";
 import { useSession } from "next-auth/react";
+import { Input } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const Register = () => {
   const session = useSession();
   useEffect(() => {
-    if (session) {
+    if (session.status === "authenticated") {
       window.location.href = ROUTES.HOME;
     }
   }, []);
@@ -81,7 +81,7 @@ const Register = () => {
                 <label htmlFor="name" className="mb-2">
                   Tên đăng nhập *
                 </label>
-                <OutlinedInput
+                <Input
                   type="text"
                   id="name"
                   className="rounded-md"
@@ -95,7 +95,7 @@ const Register = () => {
                 <label htmlFor="email" className="m-2">
                   Email *
                 </label>
-                <OutlinedInput
+                <Input
                   type="text"
                   id="email"
                   className="rounded-md"
@@ -109,21 +109,13 @@ const Register = () => {
                 <label htmlFor="password" className="m-2">
                   Mật khẩu
                 </label>
-                <OutlinedInput
+                <Input.Password
                   type={showPass ? "password" : "text"}
                   id="password"
                   className="rounded-md"
                   {...formik.getFieldProps("password")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        edge="end"
-                        onClick={() => setShowPass(!showPass)}
-                      >
-                        {showPass ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
+                  iconRender={(showPass) =>
+                    showPass ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
                 {formik.touched.password && formik.errors.password && (
@@ -134,21 +126,13 @@ const Register = () => {
                 <label htmlFor="Cfpassword" className="m-2">
                   Xác nhận mật khẩu
                 </label>
-                <OutlinedInput
+                <Input.Password
                   type={showCfPass ? "password" : "text"}
                   id="Cfpassword"
                   className="rounded-md"
                   {...formik.getFieldProps("confirmPassword")}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        edge="end"
-                        onClick={() => setShowCfPass(!showCfPass)}
-                      >
-                        {showCfPass ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
+                  iconRender={(showPass) =>
+                    showPass ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
                 {formik.touched.confirmPassword &&

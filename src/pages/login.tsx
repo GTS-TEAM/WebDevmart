@@ -5,8 +5,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { ROUTES } from "../constaint/constant";
-import { Button, message } from "antd";
+import { Button, Input, message } from "antd";
 import { useRouter } from "next/router";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const Login = () => {
   const navigate = useRouter();
@@ -33,10 +34,13 @@ const Login = () => {
       password,
       redirect: false,
     });
+    console.log(res);
     if (res?.error) {
       showRes(res.error);
       setLoading(false);
-    } else {
+      return;
+    }
+    if (res?.ok) {
       setLoading(false);
       message.success("Login success");
       window.location.href = ROUTES.HOME;
@@ -74,30 +78,22 @@ const Login = () => {
               <label htmlFor="email" className="m-2">
                 Email
               </label>
-              <OutlinedInput
-                type="text"
+              <Input
+                typeof="text"
                 id="email"
-                className="rounded-md"
+                className="rounded-md h-10"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <label htmlFor="password" className="m-2">
                 Mật khẩu
               </label>
-              <OutlinedInput
+              <Input.Password
                 type={showPass ? "password" : "text"}
                 id="password"
-                className="rounded-md"
+                className="rounded-md h-10"
                 onChange={(e) => setPassword(e.target.value)}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      edge="end"
-                      onClick={() => setShowPass(!showPass)}
-                    >
-                      {showPass ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
+                iconRender={(showPass) =>
+                  showPass ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                 }
               />
               <Button
