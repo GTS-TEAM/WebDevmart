@@ -3,11 +3,12 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import React, { useEffect, useState } from "react";
-import { ROUTES } from "../constaint/constant";
+import { BASE_URL, ROUTES } from "../constaint/constant";
 import BehindBanner from "@components/BehindBanner/BehindBanner";
 import { useSession } from "next-auth/react";
-import { Input } from "antd";
+import { Button, Input, message } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import axios from "axios";
 
 const Register = () => {
   const session = useSession();
@@ -19,6 +20,7 @@ const Register = () => {
 
   const [showPass, setShowPass] = useState(true);
   const [showCfPass, setShowCfPass] = useState(true);
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       userName: "",
@@ -26,9 +28,23 @@ const Register = () => {
       password: "",
       confirmPassword: "",
     },
-    onSubmit: (values, actions) => {
-      console.log(values);
-      actions.resetForm();
+    onSubmit: async (values, actions) => {
+      try {
+        setLoading(true);
+        console.log(values);
+        const res: any = await axios.post(`${BASE_URL}auth/register`, {
+          email: values.email,
+          password: values.password,
+          name: values.userName,
+          role: "customer",
+        });
+        setLoading(false);
+        message.success(res.data.message);
+        actions.resetForm();
+      } catch (e: any) {
+        setLoading(false);
+        message.error(e.response.data.message);
+      }
     },
     validationSchema: Yup.object({
       userName: Yup.string().required("Vui lòng điền vào trường này"),
@@ -74,10 +90,7 @@ const Register = () => {
           </div>
           <div className="mt-8 mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
-              <form
-                onSubmit={formik.handleSubmit}
-                className="flex flex-col mt-10 w-full"
-              >
+              <form className="flex flex-col mt-10 w-full">
                 <label htmlFor="name" className="mb-2">
                   Tên đăng nhập *
                 </label>
@@ -141,15 +154,15 @@ const Register = () => {
                       {formik.errors.confirmPassword}
                     </span>
                   )}
-                <button
-                  className={`${
-                    formik.isValid ? "bg-blue-500" : "cursor-not-allowed"
-                  } bg-blue-400 mt-6 rounded-sm p-2 text-white cursor-pointer`}
-                  disabled={!formik.isValid}
-                  type="submit"
+                <Button
+                  type="primary"
+                  loading={loading}
+                  onClick={() => formik.submitForm()}
+                  className="bg-blue-400 mt-6 rounded-sm p-1 text-white cursor-pointer"
+                  typeof="submit"
                 >
                   <span>Đăng kí</span>
-                </button>
+                </Button>
               </form>
             </div>
             <div className="flex flex-col items-center">

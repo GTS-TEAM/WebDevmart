@@ -10,8 +10,6 @@ const Home = () => {
   useEffect(() => {
     if (session.status === "unauthenticated") {
       navigate.replace(ROUTES.LANDING);
-    } else {
-      navigate.replace(ROUTES.HOME);
     }
   }, [session]);
   return (

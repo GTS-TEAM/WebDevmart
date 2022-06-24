@@ -101,7 +101,7 @@ const Login = () => {
                 className="bg-blue-400 mt-6 rounded-sm mb-8 text-white cursor-pointer"
                 onClick={handleSubmit}
               >
-                <span>Đăng kí</span>
+                <span>Đăng nhập</span>
               </Button>
             </form>
           </div>
