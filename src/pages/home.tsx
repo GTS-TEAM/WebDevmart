@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
-const home = () => {
+const Home = () => {
   const session = useSession();
   const navigate = useRouter();
   useEffect(() => {
@@ -25,4 +25,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
