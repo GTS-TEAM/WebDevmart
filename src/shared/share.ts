@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-export const BASE_URL = "https://api.devmart.software/ms-golang/api/";
-
 export interface User {
   id: string;
   created_at: string;
@@ -19,7 +17,6 @@ export interface Token {
 export interface ResLogin {
   user: User;
   token: Token;
-  message: string;
 }
 
 export interface products {
@@ -32,11 +29,6 @@ export interface products {
 export interface productReview {
   products: products[];
   message: string;
-}
-
-export interface User {
-  name: string;
-  age: number;
 }
 
 export const ratingSettings = {
@@ -75,6 +67,7 @@ export const settings = {
     {
       breakpoint: 480,
       settings: {
+        dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
       },
@@ -185,9 +178,3 @@ export const SliderRating = styled.div`
     right: -4rem;
   }
 `;
-
-export const ROUTES = {
-  REGISTER: "/register",
-  LOGIN: "/login",
-  HOME: "/",
-};

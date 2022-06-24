@@ -1,10 +1,14 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../share";
+import { createSlice } from "@reduxjs/toolkit";
+import { User } from "../shared/share";
 import type { RootState } from "../app/store";
 
 const initialState: User = {
   name: "thanh",
-  age: 21,
+  email: "",
+  created_at: "",
+  id: "",
+  role: "",
+  updated_at: "",
 };
 
 export const authSlice = createSlice({

@@ -2,36 +2,59 @@ import BehindBanner from "@components/BehindBanner/BehindBanner";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import Link from "next/link";
-import React, { useState } from "react";
-import { ROUTES } from "./share";
+import React, { useEffect, useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { ROUTES } from "../constaint/constant";
+import { Button, message } from "antd";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const navigate = useRouter();
+  const session = useSession();
+  useEffect(() => {
+    if (session.status === "authenticated") {
+      navigate.replace(ROUTES.HOME);
+    }
+  }, [session]);
   const [showPass, setShowPass] = useState(true);
-  const [infoLogin, setInfoLogin] = useState<{
-    email: string;
-    password: string;
-  }>({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const showRes = (res: string) => {
+    message.error(res);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(infoLogin);
+    setLoading(true);
+    const res: any = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (res?.error) {
+      showRes(res.error);
+      setLoading(false);
+    } else {
+      setLoading(false);
+      message.success("Login success");
+      window.location.href = ROUTES.HOME;
+    }
   };
   return (
     <div className="relative min-h-screen bg-zinc-200 flex flex-col justify-center px-6 lg:px-8">
       <BehindBanner />
       <div className="z-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <Link href={ROUTES.HOME}>
+          <Link href={ROUTES.LANDING}>
             <img
               src="images/lg-devmart.png"
               alt=""
               className="cursor-pointer hidden md:flex mx-auto h-20 w-auto xl:h-36 xl:w-44"
             />
           </Link>
-          <Link href={ROUTES.HOME}>
+          <Link href={ROUTES.LANDING}>
             <img
               src="images/mini-lg.png"
               alt=""
@@ -55,9 +78,7 @@ const Login = () => {
                 type="text"
                 id="email"
                 className="rounded-md"
-                onChange={(e) =>
-                  setInfoLogin({ ...infoLogin, email: e.target.value })
-                }
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label htmlFor="password" className="m-2">
                 Mật khẩu
@@ -66,9 +87,7 @@ const Login = () => {
                 type={showPass ? "password" : "text"}
                 id="password"
                 className="rounded-md"
-                onChange={(e) =>
-                  setInfoLogin({ ...infoLogin, password: e.target.value })
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -81,12 +100,15 @@ const Login = () => {
                   </InputAdornment>
                 }
               />
-              <button
-                type="submit"
-                className="bg-blue-400 mt-6 rounded-sm p-3 mb-8 text-white cursor-pointer"
+              <Button
+                typeof="submit"
+                loading={loading}
+                type="primary"
+                className="bg-blue-400 mt-6 rounded-sm mb-8 text-white cursor-pointer"
+                onClick={handleSubmit}
               >
                 <span>Đăng kí</span>
-              </button>
+              </Button>
             </form>
           </div>
           <div className="flex flex-col items-center">

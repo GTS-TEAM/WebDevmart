@@ -4,11 +4,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import React, { useState } from "react";
-import { ROUTES } from "../../share";
+import React, { useEffect, useState } from "react";
+import { ROUTES } from "../constaint/constant";
 import BehindBanner from "@components/BehindBanner/BehindBanner";
+import { useSession } from "next-auth/react";
 
 const Register = () => {
+  const session = useSession();
+  useEffect(() => {
+    if (session) {
+      window.location.href = ROUTES.HOME;
+    }
+  }, []);
+
   const [showPass, setShowPass] = useState(true);
   const [showCfPass, setShowCfPass] = useState(true);
   const formik = useFormik({
@@ -46,14 +54,14 @@ const Register = () => {
         <BehindBanner />
         <div className="z-10">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <Link href={ROUTES.HOME}>
+            <Link href={ROUTES.LANDING}>
               <img
                 src="images/lg-devmart.png"
                 alt=""
                 className="cursor-pointer hidden md:flex mx-auto h-20 w-auto xl:h-36 xl:w-44"
               />
             </Link>
-            <Link href={ROUTES.HOME}>
+            <Link href={ROUTES.LANDING}>
               <img
                 src="images/mini-lg.png"
                 alt=""

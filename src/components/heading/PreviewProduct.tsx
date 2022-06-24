@@ -9,7 +9,7 @@ import {
   SliderRating,
   SliderTop,
   WrapSlider,
-} from "../../../share";
+} from "../../shared/share";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,7 +22,6 @@ const PreviewProduct = () => {
   const getImageSlider = async () => {
     const { data } = await commerceApis.getAllProduct(20);
     setimageSlide(data.data);
-    console.log(data.data);
   };
   const [imageSlide, setimageSlide] = useState<productReview>();
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
-import { ROUTES } from "../../../share";
+import { ROUTES } from "../../constaint/constant";
 import { useRouter } from "next/router";
 
 const Header = () => {
@@ -63,7 +63,10 @@ const Header = () => {
             Contact
           </li>
           <div className="flex flex-col my-4">
-            <button className="border-none bg-transparent text-black mr-4 border-indigo-600 hover:text-indigo-600 rounded-md">
+            <button
+              className="border-none bg-transparent mb-2 text-black mr-4 border-indigo-600 hover:text-indigo-600 rounded-md"
+              onClick={() => navigate.push(ROUTES.LOGIN)}
+            >
               Sign In
             </button>
             <button

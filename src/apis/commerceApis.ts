@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, productReview } from "../../share";
+import { BASE_URL } from "../constaint/constant";
 
 axios.defaults.baseURL = BASE_URL;
 

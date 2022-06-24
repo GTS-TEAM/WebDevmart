@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ROUTES } from "constaint/constant";
+import { useRouter } from "next/router";
 const { Fade, Zoom } = require("react-reveal");
 
 const ScroolToBottom = () => {
@@ -7,6 +9,7 @@ const ScroolToBottom = () => {
 };
 
 const Hero = () => {
+  const navigate = useRouter();
   return (
     <div className="w-full h-screen md:mt-20 bg-zinc-200 flex flex-col justify-between">
       <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
@@ -23,7 +26,10 @@ const Hero = () => {
             <p className="text-3xl py-3">Great Option</p>
           </Fade>
           <Fade left delay={1500}>
-            <button className="py-3 px-6 sm:w-[60%] text-white border bg-indigo-600 border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-md">
+            <button
+              onClick={() => navigate.push(ROUTES.LOGIN)}
+              className="py-3 px-6 sm:w-[60%] text-white border bg-indigo-600 border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-md"
+            >
               Get Started
             </button>
           </Fade>
