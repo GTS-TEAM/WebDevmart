@@ -5,7 +5,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { ResLogin, Token } from "../../../shared/share";
 import { BASE_URL, ROUTES } from "../../../constaint/constant";
 import { JWT } from "next-auth/jwt";
-import { signIn } from "next-auth/react";
 
 async function refreshAccessToken(token: JWT) {
   const tokenData: Token = await axios
@@ -104,4 +103,5 @@ export default NextAuth({
   pages: {
     signIn: ROUTES.LOGIN,
   },
+  secret: process.env.NEXTAUTH_URL,
 });
