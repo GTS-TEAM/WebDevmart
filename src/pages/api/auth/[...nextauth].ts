@@ -103,5 +103,4 @@ export default NextAuth({
   pages: {
     signIn: ROUTES.LOGIN,
   },
-  secret: process.env.NEXT_AUTH_URL,
 });
