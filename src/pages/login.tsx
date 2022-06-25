@@ -25,23 +25,28 @@ const Login = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const res: any = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-    console.log(res);
-    if (res?.error) {
-      showRes(res.error);
+    try {
+      e.preventDefault();
+      setLoading(true);
+      const res: any = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+      console.log(res);
+      if (res?.error) {
+        showRes(res.error);
+        setLoading(false);
+        return;
+      }
+      if (res?.ok) {
+        setLoading(false);
+        message.success("Login success");
+        navigate.push(ROUTES.HOME);
+      }
+    } catch (error: any) {
+      console.log(error);
       setLoading(false);
-      return;
-    }
-    if (res?.ok) {
-      setLoading(false);
-      message.success("Login success");
-      window.location.href = ROUTES.HOME;
     }
   };
   return (
