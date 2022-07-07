@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       </Head>
       <div>
         <Header />
-        <div className="w-full h-screen bg-zinc-200 flex flex-col justify-between">
+        <div className="w-full h-screen flex flex-col justify-between bg-[#f8f8f8]">
           <Hero />
         </div>
         <div>
