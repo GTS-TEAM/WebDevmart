@@ -10,7 +10,6 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Drawer } from "antd";
-import Head from "next/head";
 
 const data = [
   {
