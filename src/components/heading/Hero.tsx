@@ -76,7 +76,7 @@ const Hero = () => {
           nextArrow={<NextButton />}
         >
           {dummyData.map((item) => (
-            <motion.div>
+            <motion.div key={item.name}>
               <AnimatePresence>
                 {!hide && (
                   <motion.div key={item.name}>
