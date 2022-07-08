@@ -103,5 +103,5 @@ export default NextAuth({
   pages: {
     signIn: ROUTES.LOGIN,
   },
-  secret: "next-auth-secret",
+  secret: "next-auth-secret", //The secret is used to sign the tokens. It should be a long random string.
 });
