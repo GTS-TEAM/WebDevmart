@@ -110,11 +110,11 @@ const Header = () => {
             </div>
             <div className="flex flex-col w-full items-start py-3 pt-10">
               {data.map((item) => (
-                <>
+                <div key={item.title}>
                   <span className="hover:text-red-600 cursor-pointer font-semibold w-full py-4 border-b-2 border-[rgba(255,255,255,0.2)]">
                     {item.title}
                   </span>
-                </>
+                </div>
               ))}
             </div>
             <div

@@ -63,13 +63,10 @@ const Hero = () => {
       </motion.div>
     );
   };
-  const sliderRef = React.useRef<any>(null);
-  console.log(sliderRef);
   return (
     <StyledHero className="min-h-screen w-full md:mt-20 bg-[#f8f8f8]">
       <div>
         <Slider
-          ref={sliderRef}
           {...settings}
           className="h-screen m-20"
           prevArrow={<PrevButton />}
@@ -77,15 +74,19 @@ const Hero = () => {
         >
           {dummyData.map((item) => (
             <motion.div key={item.name}>
-              <AnimatePresence>
+              <AnimatePresence key={item.name}>
                 {!hide && (
-                  <motion.div key={item.name}>
-                    <motion.div className="flex items-center justify-around px-8">
-                      <div>
+                  <motion.div>
+                    <motion.div
+                      key={item.name}
+                      className="flex items-center justify-around px-8"
+                    >
+                      <div key={item.name}>
                         <motion.div
                           initial={{ scale: 0, opacity: 0 }}
                           animate={{ scale: 1, opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.5 }}
+                          key={item.name}
                         >
                           <p className="text-2xl">{item.name}</p>
                           <h1 className="py-3 text-4xl font-extrabold">
@@ -105,14 +106,15 @@ const Hero = () => {
                           animate={{ opacity: 1 }}
                           transition={{ duration: 1, delay: 1 }}
                           className="flex justify-between w-80 mb-24"
+                          key={item.name}
                         >
-                          <div>
+                          <div key={item.name}>
                             <p className="font-bold text-gray-400">DESIGNER</p>
                             <p className="font-semibold text-sm">
                               {item.desiner}
                             </p>
                           </div>
-                          <div>
+                          <div key={item.name}>
                             <p className="font-bold text-gray-400">COLOR</p>
                             {item.color.map((color) => (
                               <span className="font-semibold text-sm">
@@ -121,7 +123,7 @@ const Hero = () => {
                             ))}
                           </div>
                         </motion.div>
-                        <div className="w-1/2">
+                        <div className="w-1/2" key={item.name}>
                           <motion.button
                             initial={{ width: 0, opacity: 0 }}
                             animate={{ width: "100%", opacity: 1 }}
@@ -143,6 +145,7 @@ const Hero = () => {
                         initial={{ x: "-100vw", opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.5 }}
+                        key={item.name}
                       >
                         <img src={item.image} alt="" />
                       </motion.div>
