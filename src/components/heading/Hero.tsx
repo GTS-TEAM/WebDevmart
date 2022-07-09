@@ -88,8 +88,13 @@ const Hero = () => {
                           transition={{ duration: 0.5, delay: 0.5 }}
                           key={item.name}
                         >
-                          <p className="text-2xl">{item.name}</p>
-                          <h1 className="py-3 text-4xl font-extrabold">
+                          <p key={item.name} className="text-2xl">
+                            {item.name}
+                          </p>
+                          <h1
+                            key={item.name}
+                            className="py-3 text-4xl font-extrabold"
+                          >
                             {item.category}
                           </h1>
                         </motion.div>
@@ -98,6 +103,7 @@ const Hero = () => {
                           animate={{ rotate: "360deg", opacity: 1 }}
                           transition={{ duration: 0.8, delay: 0.8 }}
                           className="text-xl py-3 font-[400px] max-w-2xl"
+                          key={item.name}
                         >
                           {item.description}
                         </motion.p>
@@ -109,15 +115,26 @@ const Hero = () => {
                           key={item.name}
                         >
                           <div key={item.name}>
-                            <p className="font-bold text-gray-400">DESIGNER</p>
-                            <p className="font-semibold text-sm">
+                            <p
+                              key={item.name}
+                              className="font-bold text-gray-400"
+                            >
+                              DESIGNER
+                            </p>
+                            <p
+                              key={item.name}
+                              className="font-semibold text-sm"
+                            >
                               {item.desiner}
                             </p>
                           </div>
                           <div key={item.name}>
                             <p className="font-bold text-gray-400">COLOR</p>
                             {item.color.map((color) => (
-                              <span className="font-semibold text-sm">
+                              <span
+                                key={item.name}
+                                className="font-semibold text-sm"
+                              >
                                 {color}
                               </span>
                             ))}
