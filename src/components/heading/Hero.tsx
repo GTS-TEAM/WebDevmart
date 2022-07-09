@@ -76,7 +76,7 @@ const Hero = () => {
             <motion.div key={item.name}>
               <AnimatePresence key={item.name}>
                 {!hide && (
-                  <motion.div>
+                  <motion.div key={item.name}>
                     <motion.div
                       key={item.name}
                       className="flex items-center justify-around px-8"
