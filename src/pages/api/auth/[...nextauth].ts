@@ -44,7 +44,7 @@ export default NextAuth({
       authorize: async (credentials) => {
         try {
           const data: ResLogin = await axios
-            .post(`${BASE_URL}/auth/login`, {
+            .post(`${BASE_URL}auth/login`, {
               email: credentials?.email,
               password: credentials?.password,
               role: "customer",

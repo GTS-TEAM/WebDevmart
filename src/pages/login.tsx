@@ -35,14 +35,19 @@ const Login = () => {
       });
       console.log(res);
       if (res?.error) {
-        showRes(res.error);
+        showRes("Thông tin tài khoản hoặc mật khẩu không chính xác");
         setLoading(false);
         return;
       }
       if (res?.ok) {
         setLoading(false);
-        message.success("Login success");
+        message.success("Đăng nhập thành công");
         navigate.push(ROUTES.HOME);
+      }
+
+      if (!res?.ok) {
+        setLoading(false);
+        showRes("Đăng nhập thất bại");
       }
     } catch (error: any) {
       console.log(error);

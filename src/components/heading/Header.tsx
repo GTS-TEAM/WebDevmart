@@ -108,12 +108,13 @@ const Header = () => {
               />
               <SearchIcon className="absolute w-6 h-6 right-2 fill-black top-3 cursor-pointer mx-2" />
             </div>
-            <div className="flex flex-col w-full items-start py-3 pt-10">
+            <div className="flex flex-col w-full items-start py-3 pt-10 gap-2">
               {data.map((item) => (
-                <div key={item.title}>
-                  <span className="hover:text-red-600 cursor-pointer font-semibold w-full py-4 border-b-2 border-[rgba(255,255,255,0.2)]">
+                <div key={item.title} className="w-full">
+                  <span className="hover:text-red-600 cursor-pointer font-semibold w-full py-4">
                     {item.title}
                   </span>
+                  <div className="ui divider"></div>
                 </div>
               ))}
             </div>

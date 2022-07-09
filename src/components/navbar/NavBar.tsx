@@ -8,6 +8,7 @@ import {
   ShoppingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { SearchIcon } from "@heroicons/react/solid";
 
 const NavBar = () => {
   const session = useSession();
@@ -17,7 +18,7 @@ const NavBar = () => {
   const content = (
     <Menu className="flex flex-col w-64">
       <div className="flex items-center w-full py-4">
-        <Avatar>{session.data?.user?.name?.toString()[0]}</Avatar>
+        <Avatar>{session.data?.user?.name?.toString()[0].toUpperCase()}</Avatar>
         <span className="ml-2 text-lg font-medium">
           {session.data?.user?.name}
         </span>
@@ -36,10 +37,17 @@ const NavBar = () => {
       </Menu.Item>
     </Menu>
   );
-  const { Search } = Input;
-  const contentSearch = <Search placeholder="Search..." enterButton />;
+  const contentSearch = (
+    <div className="flex items-center bg-gray-100 p-3 w-72 rounded-md md:hidden">
+      <SearchIcon className="w-5 h-5 mr-2" color="gray" />
+      <input
+        placeholder="Search..."
+        className="outline-none bg-gray-100 placeholder:text"
+      />
+    </div>
+  );
   return (
-    <div className="flex items-center justify-between mx-2 border-b-2">
+    <div className="flex items-center justify-between mx-2 border-b-2 h-[70px]">
       <div className="flex items-center">
         <img
           src="images/lg-devmart.png"
@@ -52,7 +60,13 @@ const NavBar = () => {
           className="cursor-pointer w-auto flex md:hidden mx-auto h-10"
         />
         <div className="hidden md:flex">
-          <Search placeholder="Search..." enterButton />
+          <div className="flex items-center bg-gray-100 p-3 w-72 ml-4 rounded-md">
+            <SearchIcon className="w-5 h-5 mr-2" color="gray" />
+            <input
+              placeholder="Search..."
+              className="outline-none bg-gray-100 placeholder:text"
+            />
+          </div>
         </div>
       </div>
       <div>
@@ -94,7 +108,7 @@ const NavBar = () => {
             onVisibleChange={() => setDropUser(!dropUser)}
           >
             <Avatar size="large">
-              {session.data?.user?.name?.toString()[0]}
+              {session.data?.user?.name?.toString()[0].toUpperCase()}
             </Avatar>
           </Popover>
         </div>
