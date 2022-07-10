@@ -21,6 +21,7 @@ const ProductContent = () => {
     <div className="flex flex-col">
       {optionSort.map((item, index) => (
         <div
+          key={item.title}
           onClick={(e) => handleOptionSort(e, index)}
           className="hover:bg-blue-600 flex items-center border-2 bg-[rgba(255,255,255.0.2 cursor-pointer"
         >
