@@ -22,7 +22,9 @@ export interface ResLogin {
 
 export interface products {
   id: string;
+  name: string;
   category: string;
+  price: number;
   description: string;
   images: string[];
 }

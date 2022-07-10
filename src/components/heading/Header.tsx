@@ -94,23 +94,23 @@ const Header = () => {
       >
         <div className="text-white">
           <XIcon
-            className="w-7 h-7 cursor-pointer absolute right-1 top-1"
+            className="w-7 h-7 cursor-pointer absolute right-4 top-1"
             onClick={handleClick}
           />
           <div className="flex flex-col items-center justify-center">
-            <span className="font-bold pt-2 pb-8 text-xs">
+            <span className="font-bold mb-8 text-xs">
               WHAT ARE YOU LOOKING FOR?
             </span>
-            <div className="relative w-full">
+            <div className="relative w-full flex">
               <input
                 placeholder="Search Products..."
-                className="border-none rounded-full h-10 px-4 w-full py-6 text-black focus:outline-none"
+                className="border-none rounded-full h-10 px-4 w-full py-2 text-black focus:outline-none"
               />
-              <SearchIcon className="absolute w-6 h-6 right-2 fill-black top-3 cursor-pointer mx-2" />
+              <SearchIcon className="absolute w-6 h-6 right-2 fill-black top-2 cursor-pointer mx-2" />
             </div>
-            <div className="flex flex-col w-full items-start py-3 pt-10 gap-2">
+            <div className="flex flex-col w-full items-start py-3 pt-10 h-1/2 gap-2">
               {data.map((item) => (
-                <div key={item.title} className="w-full">
+                <div key={item.title} className="w-full h-[35px] text-xs">
                   <span className="hover:text-red-600 cursor-pointer font-semibold w-full py-4">
                     {item.title}
                   </span>
@@ -119,21 +119,21 @@ const Header = () => {
               ))}
             </div>
             <div
-              className="flex items-center w-full font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)] py-4"
+              className="text-xs flex items-center w-full font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)] py-4"
               onClick={() => navigate.push(ROUTES.LOGIN)}
             >
-              <UserAddOutlined className="mr-2 text-xl" />
+              <UserAddOutlined className="mr-2 text-sm" />
               <span> LOGIN</span>
             </div>
             <div
-              className="flex items-center w-full font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)] py-4"
+              className="text-xs flex items-center w-full font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)] py-4"
               onClick={() => navigate.push(ROUTES.REGISTER)}
             >
-              <UserAddOutlined className="mr-2 text-xl" />
+              <UserAddOutlined className="mr-2 text-sm" />
               <span> REGISTER</span>
             </div>
-            <div className="flex items-center w-full py-4 font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)]">
-              <HeartOutlined className="mr-2 text-xl" />
+            <div className="text-xs flex items-center w-full py-4 font-semibold cursor-pointer border-b-2 border-[rgba(255,255,255,0.2)]">
+              <HeartOutlined className="mr-2 text-sm" />
               <span>WISHLIST</span>
             </div>
           </div>

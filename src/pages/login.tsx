@@ -3,7 +3,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { ROUTES } from "../constaint/constant";
-import { Button, Input, message } from "antd";
+import { Input, message } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 import { useRouter } from "next/router";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
@@ -54,6 +56,7 @@ const Login = () => {
       setLoading(false);
     }
   };
+  const antIcon = <LoadingOutlined style={{ fontSize: 18 }} spin />;
   return (
     <div className="relative min-h-screen bg-zinc-200 flex flex-col justify-center px-6 lg:px-8">
       <BehindBanner />
@@ -104,15 +107,16 @@ const Login = () => {
                   showPass ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                 }
               />
-              <Button
+              <button
                 typeof="submit"
-                loading={loading}
-                type="primary"
-                className="bg-blue-400 mt-6 rounded-sm mb-8 text-white cursor-pointer"
-                onClick={handleSubmit}
+                className={`${
+                  loading ? "bg-blue-200" : "bg-blue-400"
+                } p-1 mt-6 rounded-sm mb-8 text-white cursor-pointer h-8`}
+                disabled={loading}
               >
-                <span>Đăng nhập</span>
-              </Button>
+                {loading && <Spin indicator={antIcon} />}
+                <span className="mx-2">Đăng nhập</span>
+              </button>
             </form>
           </div>
           <div className="flex flex-col items-center">

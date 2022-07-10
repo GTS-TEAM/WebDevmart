@@ -1,4 +1,4 @@
-export const title = [
+export const titleHome = [
   {
     title: "Uncategorized",
   },
@@ -37,5 +37,14 @@ export const title = [
   },
   {
     title: "Tables & Chairs",
+  },
+];
+
+export const optionSort = [
+  {
+    title: "Default Sorting",
+  },
+  {
+    title: "Sorting for name",
   },
 ];

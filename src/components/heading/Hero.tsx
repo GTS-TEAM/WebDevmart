@@ -81,7 +81,7 @@ const Hero = () => {
                       key={item.name}
                       className="flex items-center justify-around px-8"
                     >
-                      <div key={item.name}>
+                      <div key={item.name} className="hidden sm:block">
                         <motion.div
                           initial={{ scale: 0, opacity: 0 }}
                           animate={{ scale: 1, opacity: 1 }}
@@ -163,8 +163,32 @@ const Hero = () => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.5 }}
                         key={item.name}
+                        className="mt-24 sm:mt-0"
                       >
                         <img src={item.image} alt="" />
+                        <p
+                          key={item.name}
+                          className="text-2xl text-center sm:hidden"
+                        >
+                          {item.name}
+                        </p>
+                        <div className="w-full sm:hidden" key={item.name}>
+                          <motion.button
+                            initial={{ width: 0, opacity: 0 }}
+                            animate={{ width: "100%", opacity: 1 }}
+                            transition={{ duration: 1.5, delay: 1.5 }}
+                            onClick={() => navigate.push(ROUTES.LOGIN)}
+                            className="py-3 px-6 text-white border bg-[#64353b] hover:bg-green-700 rounded-md"
+                          >
+                            <motion.span
+                              initial={{ width: 0, opacity: 0 }}
+                              animate={{ width: "100%", opacity: 1 }}
+                              transition={{ duration: 1.2, delay: 1.2 }}
+                            >
+                              DISCOVER NOW
+                            </motion.span>
+                          </motion.button>
+                        </div>
                       </motion.div>
                     </motion.div>
                   </motion.div>
@@ -182,7 +206,7 @@ const Hero = () => {
           repeat: Infinity,
           duration: 5,
         }}
-        className="absolute text-sm font-semibold left-[44%] rotate-90 cursor-pointer"
+        className="absolute text-sm font-semibold left-[34%] sm:left-[44%] rotate-90 cursor-pointer"
       >
         <a
           className="text-[#94535c] hover:text-[#94535c]"
