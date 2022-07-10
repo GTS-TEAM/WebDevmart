@@ -25,7 +25,9 @@ const ProductContent = () => {
           onClick={(e) => handleOptionSort(e, index)}
           className="hover:bg-blue-600 flex items-center border-2 bg-[rgba(255,255,255.0.2 cursor-pointer"
         >
-          <span className="mr-16 text-[10px]">{item.title}</span>
+          <span key={item.title} className="mr-16 text-[10px]">
+            {item.title}
+          </span>
         </div>
       ))}
     </div>
