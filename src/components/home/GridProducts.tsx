@@ -19,7 +19,10 @@ const GridProducts = () => {
         <Row gutter={[16, 24]}>
           {imageSlide?.products.map((item) => (
             <Col span={8} key={item.id}>
-              <div className="px-4 py-2 bg-[#f6f6f6] h-[280px] w-full flex items-center justify-center">
+              <div
+                key={item.id}
+                className="px-4 py-2 bg-[#f6f6f6] h-[280px] w-full flex items-center justify-center"
+              >
                 <img
                   src={item.images[0]}
                   alt="product"
