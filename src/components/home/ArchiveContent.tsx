@@ -6,9 +6,10 @@ const ArchiceContent = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-5xl font-bold py-10">FURNITURE</h1>
+
       <Row className="flex items-center justify-center">
         {titleHome.map((item, index) => (
-          <Col key={item.title} span={6}>
+          <Col key={item.title} sm={8} md={6}>
             <div key={item.title} className="flex items-center justify-center">
               <h3
                 key={item.title}

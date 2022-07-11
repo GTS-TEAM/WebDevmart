@@ -117,7 +117,7 @@ const ProductContent = () => {
           </IconContext.Provider>
         </div>
         <div className="flex items-center border-2 bg-[rgba(255,255,255.0.2 cursor-pointer h-5">
-          <Dropdown overlay={optionContent}>
+          <Dropdown overlay={optionContent} trigger={["click"]}>
             <Space>
               <span className="mr-12 ml-4 text-[10px] flex items-center justify-center">
                 {optionSort[indexSelect].title}

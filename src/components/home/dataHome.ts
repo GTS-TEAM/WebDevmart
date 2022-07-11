@@ -48,3 +48,10 @@ export const optionSort = [
     title: "Sorting for name",
   },
 ];
+
+export interface IPagination {
+  postPerPage: number;
+  totalPost?: number;
+  currentPage: number;
+  paginate: (number: number) => void;
+}
