@@ -22,6 +22,7 @@ export interface ResLogin {
 
 export interface products {
   id: string;
+  amount: number;
   name: string;
   category: string;
   price: number;
@@ -32,6 +33,11 @@ export interface products {
 export interface productReview {
   products: products[];
   message: string;
+}
+
+export interface productAction {
+  products: products[];
+  wishlist: products[];
 }
 
 export const ratingSettings = {

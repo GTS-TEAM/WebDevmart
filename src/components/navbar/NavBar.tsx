@@ -9,6 +9,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { SearchIcon } from "@heroicons/react/solid";
+import { AiOutlineHeart } from "react-icons/ai";
 
 const NavBar = () => {
   const session = useSession();
@@ -47,7 +48,7 @@ const NavBar = () => {
     </div>
   );
   return (
-    <div className="flex items-center justify-between mx-2 border-b-2 h-[70px]">
+    <div className="fixed top-0 z-10 bg-[rgba(255,255,255,0.5)] flex items-center justify-between mx-2 border-b-2 h-[70px] w-full">
       <div className="flex items-center">
         <img
           src="images/lg-devmart.png"
@@ -82,7 +83,6 @@ const NavBar = () => {
               <SearchOutlined className="text-2xl p-2 hover:bg-gray-100 rounded-full" />
             </div>
           </Popover>
-          <ShoppingOutlined className="text-2xl p-2 hover:bg-gray-100 rounded-full" />
           <div className="p-2 hover:bg-gray-100 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +100,10 @@ const NavBar = () => {
             </svg>
           </div>
           <BellOutlined className="text-2xl p-2 hover:bg-gray-100 rounded-full" />
+          <div className="text-2xl p-2 hover:bg-gray-100 rounded-full">
+            <AiOutlineHeart />
+          </div>
+          <ShoppingOutlined className="text-2xl p-2 hover:bg-gray-100 rounded-full" />
           <Popover
             content={content}
             trigger="click"

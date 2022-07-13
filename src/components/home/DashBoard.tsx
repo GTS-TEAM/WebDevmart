@@ -9,7 +9,7 @@ const DashBoard = () => {
   const session = useSession();
   return (
     <div className="">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-[80px]">
         <span className="text-lg font-medium px-2">
           <span className="text-gray-400"> Xin chào</span>,{" "}
           {session.data?.user?.name}

@@ -55,3 +55,22 @@ export interface IPagination {
   currentPage: number;
   paginate: (number: number) => void;
 }
+
+export const featureMotion = {
+  rest: {
+    y: 50,
+    opacity: 0,
+    ease: "easeOut",
+    duration: 1,
+    type: "tween",
+  },
+  hover: {
+    y: 20,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeIn",
+    },
+  },
+};
