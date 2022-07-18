@@ -1,4 +1,4 @@
-export const BASE_URL = "http://api.devmart.software/api/";
+export const BASE_URL = "https://api.devmart.software/api/";
 
 export const ROUTES = {
   REGISTER: "/register",
